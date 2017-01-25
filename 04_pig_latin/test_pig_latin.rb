@@ -9,8 +9,8 @@ require 'pig_latin'
 class TestPigLatin < MiniTest::Test
   # translate
   def test_translate_word_starting_with_vowel
-    s = translate("apple")
-    assert_equal "appleay", s
+    s = translate("uphill")
+    assert_equal "uphillay", s
   end
 
   def test_translate_word_starting_with_consonant
