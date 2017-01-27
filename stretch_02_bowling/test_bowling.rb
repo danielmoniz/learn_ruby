@@ -24,7 +24,7 @@ class TestGame < MiniTest::Test
   end
 
   def test_score_0_for_gutter_game
-    score = 12.times.map { 0 }
+    score = 20.times.map { 0 }
     assert_equal 0, @game.score(score)
   end
 
@@ -56,5 +56,15 @@ class TestGame < MiniTest::Test
   def test_score_150_for_all_5
     score = 21.times.map { 5 }
     assert_equal 150, @game.score(score)
+  end
+
+  def test_mixed_scores_two_in_last_frame
+    score = [2, 5, 7, 3, 10, 10, 6, 2, 1, 9, 7, 3, 4, 4, 10, 3, 6]
+    assert_equal 146, @game.score(score)
+  end
+
+  def test_mixed_scores_three_in_last_frame
+    score = [2, 0, 9, 1, 10, 3, 4, 10, 2, 8, 5, 5, 8, 2, 3, 4, 6, 4, 1]
+    assert_equal 130, @game.score(score)
   end
 end
