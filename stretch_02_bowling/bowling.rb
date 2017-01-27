@@ -1,7 +1,7 @@
 class Game
   def score(rolls, frame=1)
     return rolls[0..-1].reduce(:+) if frame == 10
-    puts rolls.to_s
+
     if rolls[0] == 10
       # strike
       return rolls[0..2].reduce(:+) + self.score(rolls[1..-1], frame + 1)
